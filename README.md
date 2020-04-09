@@ -40,8 +40,6 @@ A journaling app.
 - [ESLint](https://eslint.org/): Helps identify problematic code and enforces adherence to our chosen style guidelines (see next item). Additionally, ESLint rules are well documented, serving as a learning experience that strengthens our understanding of the language.
 - [AirBnB's JavaScript Style Guide](https://github.com/airbnb/javascript): Another well documented resource. Has a lot of opinions, another chance to think about the _why_ and learn new things. Yes, we like the semicolons.
 
-**Front End**
-
 **Deployment**
 
 - [Heroku](https://devcenter.heroku.com/categories/nodejs-support): Free, fast and fairly straightforward setup. Provides plugin for connecting a database.
