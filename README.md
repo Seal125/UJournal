@@ -2,18 +2,38 @@
 
 A journaling app.
 
+## Features
+
+**MVP Features**
+
+- Users will be able to register an account/log in to save their entries.
+
+- Users will be able to write a journal entry, and select multiple moods that they feel throughout the day as they write.
+
+- Users will have the ability to make their entries public for others to see.
+
+- Users will be able to see public journal entries from others in an explore page.
+
+**Future Features**
+
+- Users will be able to share their entries with other users that they trust.
+
+- Users will be able to categorize entries based on hashtags.
+
+- Users will be able to select an icon for each emotion, making it easier to visualize.
+
 ## Technologies Used
 
 **Database**
 
-- [node-postgres](https://node-postgres.com/): Provides interface for connecting with PostgresQL
+- [node-postgres](https://node-postgres.com/): Provides interface for connecting with PostgreSQL
 
 **Server**
 
 - [Express](https://expressjs.com/): Minimal (key to our goal of learning fundamental patterns) and flexible Node.js web app framework.
 - [body-parser](https://github.com/expressjs/body-parser): Middleware for parsing the body of a request.
 - [cookie-parser](https://github.com/expressjs/cookie-parser): Middleware for parsing request cookies.
-- [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken): JSON Web Token implementation. Used to authorize use user
+- [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken): JSON Web Token implementation. Used to authorize user.
 
 **Code Quality**
 
@@ -24,11 +44,12 @@ A journaling app.
 
 **Deployment**
 
-- [Heroku](https://devcenter.heroku.com/categories/nodejs-support): Free, fast and easy setup. Provides plugin for connecting a database.
+- [Heroku](https://devcenter.heroku.com/categories/nodejs-support): Free, fast and fairly straightforward setup. Provides plugin for connecting a database.
 
 ## Database Information
 
 **Entity-Relationship Diagram**
+
 ![ERD](./Feels.svg)
 
 **Table Definitions**
