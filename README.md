@@ -55,8 +55,8 @@ A journaling app.
 ```sql
 CREATE TABLE users(
   user_id SERIAL PRIMARY KEY,
-  name varchar(48),
-  username varchar(48) UNIQUE NOT NULL,
+  name text,
+  username varchar(32) UNIQUE NOT NULL,
   email text UNIQUE NOT NULL,
   password text NOT NULL
 );
@@ -64,8 +64,8 @@ CREATE TABLE users(
 CREATE TABLE journal_entries(
   entry_id SERIAL PRIMARY KEY,
   user_id integer REFERENCES users NOT NULL,
-  title varchar(48) DEFAULT now(),
-  cover_url text DEFAULT '',
+  title varchar(72) NOT NULL,
+  cover_url text,
   entry_body text NOT NULL,
   date_created timestamp DEFAULT now(),
   is_private boolean DEFAULT true
@@ -74,7 +74,7 @@ CREATE TABLE journal_entries(
 CREATE TABLE moods(
   mood_id SERIAL PRIMARY KEY,
   entry_id integer REFERENCES journal_entries NOT NULL,
-  icon_url text DEFAULT '',
+  icon_url text,
   mood varchar(32) NOT NULL
 );
 ```
