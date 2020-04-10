@@ -8,20 +8,20 @@ class Mood {
 
   static getAll(entryId) {
     const queryText = 'SELECT * FROM moods WHERE entry_id = $1';
-    return db.query(queryText, [entryId]);
+    return db.query(queryText, [entryId]).then((res) => res.rows);
   }
 
-  static update(newMood, entryId) {
-    const queryText = 'UPDATE moods SET mood = $1 WHERE entry_id = $2';
-    return db.query(queryText, [newMood, entryId]);
+  static update(newMood, moodId) {
+    const queryText = 'UPDATE moods SET mood = $1 WHERE mood_id = $2';
+    return db.query(queryText, [newMood, moodId]);
   }
 
-  static removeOne(mood, entryId) {
-    const queryText = 'DELETE FROM moods WHERE mood = $1 AND entry_id = $2';
-    return db.query(queryText, [mood, entryId]);
+  static remove(moodId) {
+    const queryText = 'DELETE FROM moods WHERE mood_id = $1';
+    return db.query(queryText, [moodId]);
   }
 
-  static removeAll(entryId) {
+  static removeAllFromEntry(entryId) {
     const queryText = 'DELETE FROM moods WHERE entry_id = $1';
     return db.query(queryText, [entryId]);
   }
