@@ -1,6 +1,6 @@
 const db = require('../db');
 
-class Mood {
+class Moods {
   static add(mood, entryId) {
     const queryText = 'INSERT INTO moods (mood, entry_id) VALUES ($1, $2)';
     return db.query(queryText, [mood, entryId]);
@@ -27,4 +27,4 @@ class Mood {
   }
 }
 
-module.exports = Mood;
+module.exports = Moods;
