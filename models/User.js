@@ -8,7 +8,8 @@ class User {
 
   static getUserByEmail(userEmail) {
     const queryText = 'SELECT * FROM users WHERE email = $1;';
-    return db.query(queryText, [userEmail]).then((response) => response.rows);
+    return db.query(queryText, [userEmail])
+      .then((response) => response.rows);
   }
 }
 
