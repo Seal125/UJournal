@@ -33,6 +33,7 @@ A journaling app.
 - [Express](https://expressjs.com/): Minimal (key to our goal of learning fundamental patterns) and flexible Node.js web app framework.
 - [body-parser](https://github.com/expressjs/body-parser): Middleware for parsing the body of a request.
 - [cookie-parser](https://github.com/expressjs/cookie-parser): Middleware for parsing request cookies.
+- [bcrypt](https://github.com/kelektiv/node.bcrypt.js): Middleware for encrypting user passwords.
 - [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken): JSON Web Token implementation. Used to authorize user.
 
 **Code Quality**
