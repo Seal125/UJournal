@@ -1,9 +1,11 @@
 const db = require('../db');
 
 class Moods {
-  static add(mood, entryId) {
+  static add(moods, entryId) {
     const queryText = 'INSERT INTO moods (mood, entry_id) VALUES ($1, $2)';
-    return db.query(queryText, [mood, entryId]);
+    for (let i = 0; i < moods.length; i += 1) {
+      db.query(queryText, [moods[i], entryId]);
+    }
   }
 
   static getAll(entryId) {
