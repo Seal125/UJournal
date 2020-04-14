@@ -2,7 +2,7 @@ const JournalEntry = require('../models/JournalEntry');
 
 const add = (req, res) => {
   const {
-    userId, title, entryBody, isPrivate
+    userId, title, entryBody, isPrivate,
   } = req.body;
 
   JournalEntry.addJournalEntry(title, entryBody, isPrivate)
