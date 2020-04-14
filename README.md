@@ -70,4 +70,9 @@ CREATE TABLE journal_entries(
   date_created timestamp DEFAULT now(),
   is_private boolean DEFAULT true
 );
+
+CREATE TABLE tag(
+  tag_id SERIAL PRIMARY KEY,
+  name varchar(16) UNIQUE NOT NULL
+);
 ```
