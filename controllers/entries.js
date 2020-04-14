@@ -36,9 +36,18 @@ const remove = (req, res) => {
     .catch(() => res.status(500).json({ message: 'Journal entry could not be deleted.' }));
 };
 
+const getAll = (req, res) => {
+  const { userId } = req.body;
+
+  JournalEntry.getAll(userId)
+    .then((response) => res.status(200).json(response))
+    .catch(() => res.status(500).json({ message: 'Could not get all journal entries.' }));
+};
+
 module.exports = {
   add,
   view,
   update,
   remove,
+  getAll,
 };
