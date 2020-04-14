@@ -1,14 +1,12 @@
 const JournalEntry = require('../models/JournalEntry');
-const Mood = require('../models/Mood');
 
 const add = (req, res) => {
   const {
-    userId, title, entryBody, isPrivate, moods,
+    userId, title, entryBody, isPrivate
   } = req.body;
 
   JournalEntry.addJournalEntry(title, entryBody, isPrivate)
     .then(() => JournalEntry.getLastCreated(userId))
-    .then((entry) => Mood.add(moods, entry.entry_id))
     .then(() => res.status(201).json({ message: 'Journal entry added.' }))
     .catch(() => res.status(500).json({ message: 'Journal entry could not be added.' }));
 };
