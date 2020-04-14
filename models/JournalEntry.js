@@ -28,10 +28,10 @@ class JournalEntry {
       .then((response) => response.rows[0]);
   }
 
-  static getById(entryId) {
-    const queryText = 'SELECT * FROM journal_entries WHERE entry_id = $1;';
-    return db.query(queryText, [entryId])
-      .then((response) => response.rows[0]);
+  static getAll(userId) {
+    const queryText = 'SELECT * FROM journal_entries WHERE user_id = $1;';
+    return db.query(queryText, [userId])
+      .then((response) => response.rows);
   }
 }
 
