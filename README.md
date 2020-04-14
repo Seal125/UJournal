@@ -8,7 +8,7 @@ A journaling app.
 
 - Users will be able to register an account/log in to save their entries.
 
-- Users will be able to write a journal entry, and select multiple moods that they feel throughout the day as they write.
+- Users will be able to write a journal entry.
 
 - Users will have the ability to make their entries public for others to see.
 
@@ -73,10 +73,4 @@ CREATE TABLE journal_entries(
   is_private boolean DEFAULT true
 );
 
-CREATE TABLE moods(
-  mood_id SERIAL PRIMARY KEY,
-  entry_id integer REFERENCES journal_entries NOT NULL,
-  icon_url text,
-  mood varchar(32) NOT NULL
-);
 ```
