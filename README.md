@@ -56,9 +56,7 @@ A journaling app.
 ```sql
 CREATE TABLE users(
   user_id SERIAL PRIMARY KEY,
-  name text,
   username varchar(32) UNIQUE NOT NULL,
-  email text UNIQUE NOT NULL,
   password text NOT NULL
 );
 
@@ -72,4 +70,8 @@ CREATE TABLE journal_entries(
   is_private boolean DEFAULT true
 );
 
+CREATE TABLE tag(
+  tag_id SERIAL PRIMARY KEY,
+  name varchar(16) UNIQUE NOT NULL
+);
 ```
