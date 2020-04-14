@@ -65,9 +65,10 @@ CREATE TABLE users(
 CREATE TABLE journal_entries(
   entry_id SERIAL PRIMARY KEY,
   user_id integer REFERENCES users NOT NULL,
-  title varchar(72) NOT NULL,
-  cover_url text,
+  title varchar(64) NOT NULL,
   entry_body text NOT NULL,
+  user_mood_rating integer DEFAULT 0,
+  lib_mood_rating integer DEFAULT 0,
   date_created timestamp DEFAULT now(),
   is_private boolean DEFAULT true
 );
