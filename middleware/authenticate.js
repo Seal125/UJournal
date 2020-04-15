@@ -8,12 +8,10 @@ const authenticate = async (req, res, next) => {
   if (!token) return res.sendStatus(401); // unauthenticated, unknown identity
 
   const payload = jwt.verify(token, process.env.JWT_SECRET);
-  const { username, password } = payload;
+  if (!payload) return res.sendStatus(403);
+
+  const { username } = payload;
   const user = await User.getByUsername(username);
-  const match = bcrypt.compare(password, user.password);
-
-  if (!match) return res.sendStatus(403); // unauthorized, known identity
-
   req.body.userId = user.user_id;
   return next();
 };
