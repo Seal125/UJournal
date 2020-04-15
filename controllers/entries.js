@@ -44,10 +44,17 @@ const getAll = (req, res) => {
     .catch(() => res.status(500).json({ message: 'Could not get all journal entries.' }));
 };
 
+const getAllPublic = (req, res) => {
+  JournalEntry.getAllByPublic()
+    .then((response) => res.status(200).json(response))
+    .catch(() => res.status(500).json({ message: 'Could not get all public entries.' }));
+};
+
 module.exports = {
   add,
   view,
   update,
   remove,
   getAll,
+  getAllPublic,
 };

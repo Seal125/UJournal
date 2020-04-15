@@ -33,6 +33,12 @@ class JournalEntry {
     return db.query(queryText, [userId])
       .then((response) => response.rows);
   }
+
+  static getAllByPublic() {
+    const queryText = 'SELECT * FROM journal_entries WHERE is_private = false;';
+    return db.query(queryText)
+      .then((response) => response.rows);
+  }
 }
 
 module.exports = JournalEntry;
