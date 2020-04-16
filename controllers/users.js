@@ -12,14 +12,14 @@ const register = async (req, res) => {
   } catch (err) {
     return res.sendStatus(501);
   }
-  const token = await helpers.genToken({ username, password });
+  const token = helpers.genToken({ username, password });
   return res.cookie('ujournal_remembers', token).sendStatus(201);
 };
 
 const login = async (req, res) => {
   const { username, password } = req.body;
   const user = await User.getByUsername(username);
-  if (!user) return res.sendStatus(404);
+  if (!user) return res.sendStatus(403); // same status as wrong pass for sec
 
   const match = await bcrypt.compare(password, user.password);
   if (!match) return res.sendStatus(403);
