@@ -4,15 +4,15 @@ const bcrypt = require('bcrypt');
 const genToken = (payload) => {
   const jwtOpts = { expiresIn: '5h' };
   const secret = process.env.JWT_SECRET;
-  return jwt.sign(payload, secret, jwtOpts, (err, token) => token);
+  return jwt.sign(payload, secret, jwtOpts);
 };
 
 const verifyUsername = (username) => {
-  const regex = /\w/g;
+  const regex = /^\w+$/;
   const maxLength = 32;
   const minLength = 4;
   return (
-    username.match(regex)
+    regex.test(username)
     && username.length <= maxLength
     && username.length >= minLength
   );
