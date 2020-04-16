@@ -1,12 +1,8 @@
-const path = require('path');
+const bcrypt = require('bcrypt');
 const User = require('../models/User');
 const helpers = require('./helpers');
 
-const getSignupPage = (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, '../views/signup.html'));
-};
-
-const signUp = async (req, res) => {
+const register = async (req, res) => {
   const { username, password } = req.body;
   const isUsernameValid = helpers.verifyUsername(username);
   if (!isUsernameValid) return res.sendStatus(500);
@@ -20,4 +16,16 @@ const signUp = async (req, res) => {
   return res.cookie('ujournal_remembers', token).sendStatus(201);
 };
 
-module.exports = { getSignupPage, signUp };
+const login = async (req, res) => {
+  const { username, password } = req.body;
+  const user = await User.getByUsername(username);
+  if (!user) return res.sendStatus(404);
+
+  const match = await bcrypt.compare(password, user.password);
+  if (!match) return res.sendStatus(403);
+
+  const token = await helpers.genToken({ username, password });
+  return res.cookie('ujournal_remembers', token).sendStatus(200);
+};
+
+module.exports = { register, login };
