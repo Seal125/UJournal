@@ -71,8 +71,15 @@ CREATE TABLE journal_entries(
   is_private boolean DEFAULT true
 );
 
-CREATE TABLE tag(
-  tag_id SERIAL PRIMARY KEY,
-  name varchar(16) UNIQUE NOT NULL
+CREATE TABLE tags(
+  id SERIAL PRIMARY KEY,
+  name varchar(40) NOT NULL
 );
+
+CREATE TABLE journal_entries_tag(
+  id SERIAL,
+  user_id integer REFERENCES users NOT NULL,
+  entry_id integer REFERENCES journal_entries NOT NULL,
+  tag_id integer REFERENCES tags NOT NULL
+) 
 ```
