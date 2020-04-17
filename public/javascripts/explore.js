@@ -18,6 +18,6 @@ window.addEventListener('load', async () => {
 });
 
 const deleteEntry = async (entryId) => {
-  await fetch(`/entries/${entryId}`);
+  await fetch(`/entries/${entryId}`, { method: 'DELETE' });
   return window.location.reload();
 };
