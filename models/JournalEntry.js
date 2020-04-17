@@ -35,7 +35,7 @@ class JournalEntry {
   }
 
   static getAllByPublic() {
-    const queryText = 'SELECT journal_entries.entry_id, journal_entries.title, journal_entries.date_created, users.username FROM journal_entries JOIN users ON journal_entries.user_id = users.user_id WHERE journal_entries.is_private = false;';
+    const queryText = 'SELECT journal_entries.entry_id, journal_entries.title, journal_entries.date_created, users.username FROM journal_entriesJOIN users ON journal_entries.user_id = users.user_id WHERE journal_entries.is_private = false;';
     return db.query(queryText)
       .then((response) => response.rows);
   }
