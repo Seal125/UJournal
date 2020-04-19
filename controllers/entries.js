@@ -15,10 +15,7 @@ const show = (req, res) => {
   const { id } = req.params;
   const { userId } = req.body;
   JournalEntry.show(userId, id)
-    .then((response) => {
-      console.log(response);
-      res.status(200).json(response);
-    })
+    .then((response) => res.status(200).json(response))
     .catch(() => res.status(500));
 };
 
