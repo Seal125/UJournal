@@ -1,15 +1,19 @@
 window.addEventListener('load', async () => {
-  const response = await fetch('/explore/entries');
+  const response = await fetch('/api/explore/entries');
   const entries = await response.json();
 
   return entries.forEach((entry) => {
+    const date = new Date(entry.date_created);
     document.getElementById('explore-entries').innerHTML += `
-      <a href="/entries/${entry.entry_id}">
-        <div class="entry">
-          <h1 class="title">${entry.title}</h1>
-          <p>By ${entry.username}</p>
+    <a href="/explore/entries/${entry.entry_id}">
+      <div class="column is-one-third">
+        <div class="card-content is-one-third">
+          <p class="title">${entry.title}</p>
+          <p class="subtitle">By ${entry.username}</p>
+          <p>${date.toDateString()}</p>
         </div>
-      </a>
+      </div>
+    </a>
     `;
   });
 });

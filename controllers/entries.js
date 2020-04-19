@@ -9,9 +9,10 @@ const add = (req, res) => {
     .catch(() => res.status(500).json({ message: 'Journal entry could not be added.' }));
 };
 
-const view = (req, res) => {
-  const { entryId } = req.params;
-  JournalEntry.view(entryId)
+const show = (req, res) => {
+  const { id } = req.params;
+  const { userId } = req.body;
+  JournalEntry.show(userId, id)
     .then((response) => res.status(200).json(response))
     .catch(() => res.status(500));
 };
@@ -19,10 +20,10 @@ const view = (req, res) => {
 const update = (req, res) => {
   const { id } = req.params;
   const { title, entryBody, isPrivate } = req.body;
-  
+
   JournalEntry.update(id, title, entryBody, isPrivate)
-    .then(() => res.sendStatus(200))
-    .catch(() => res.sendStatus(500));
+    .then(() => res.status(200))
+    .catch(() => res.status(500));
 };
 
 const remove = (req, res) => {
@@ -51,7 +52,7 @@ const getAllPublic = (req, res) => {
 
 module.exports = {
   add,
-  view,
+  show,
   update,
   remove,
   getAll,
