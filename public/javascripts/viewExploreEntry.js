@@ -2,14 +2,15 @@ const title = document.getElementById('exploreTitle');
 const user = document.getElementById('exploreUsername');
 const date = document.getElementById('exploreDateCreated');
 const body = document.getElementById('exploreBodyText');
-const param = Number(window.location.pathname.replace(/a-z\//ig, ''));
+const param = window.location.pathname.replace('/explore/entries/', '');
+
 
 window.addEventListener('load', async () => {
-  const response = await fetch(`/explore/entries/${param}`);
+  const response = await fetch(`/api/explore/entries/${param}`);
   const entryData = await response.json();
 
-  title.innerText = `${entryData.title}`;
-  user.innerText = `By ${entryData.username}`;
-  date.innerText = `${entryData.date_created}`;
-  body.innerText = `${entryData.entry_body}`;
+  title.innerText = entryData[0].title;
+  user.innerText = `By ${entryData[0].username}`;
+  date.innerText = entryData[0].date_created;
+  body.innerText = entryData[0].entry_body;
 });

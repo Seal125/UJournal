@@ -5,9 +5,9 @@ const router = express.Router();
 
 router.get('/entries', entryController.getAll);
 
-router.get('/entries/:id', entryController.view);
+router.get('/entries/:id', entryController.show);
 
-router.get('/explore/entries/:id', entryController.view);
+router.get('/api/explore/entries/:id', entryController.show);
 
 router.get('/explore/entries', entryController.getAllPublic);
 

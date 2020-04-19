@@ -12,8 +12,18 @@ const getEntryForm = (req, res) => {
   res.status(200).sendFile(path.join(__dirname, '../views/entryForm.html'));
 };
 
+const getExplorePage = (req, res) => {
+  res.status(200).sendFile(path.join(__dirname, '../views/explore.html'));
+};
+
+const getExploreEntry = (req, res) => {
+  res.sendFile(path.join(__dirname, '../views/viewExploreEntry.html'));
+};
+
 module.exports = {
   getSignupForm,
   getLoginForm,
   getEntryForm,
+  getExplorePage,
+  getExploreEntry,
 };
