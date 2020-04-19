@@ -6,8 +6,8 @@ window.addEventListener('load', async () => {
     const date = new Date(entry.date_created);
     document.getElementById('explore-entries').innerHTML += `
     <a href="/explore/entries/${entry.entry_id}">
-      <div class="card">
-        <div class="card-content">
+      <div class="column is-one-third">
+        <div class="card-content is-one-third">
           <p class="title">${entry.title}</p>
           <p class="subtitle">By ${entry.username}</p>
           <p>${date.toDateString()}</p>
