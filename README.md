@@ -75,4 +75,11 @@ CREATE TABLE tag(
   tag_id SERIAL PRIMARY KEY,
   name varchar(16) UNIQUE NOT NULL
 );
+
+CREATE TABLE journal_entries_tag(
+  id SERIAL PRIMARY KEY,
+  entry_id integer REFERENCES journal_entries NOT NULL,
+  user_id integer REFERENCES users NOT NULL,
+  tag_id integer REFERENCES tag NOT NULL
+)
 ```
