@@ -2,7 +2,8 @@ const db = require('../db');
 
 class JournalEntry {
   static add(userId, title, entryBody, isPrivate) {
-    const queryText = 'INSERT INTO journal_entries (user_id, title, entry_body, is_private) VALUES ($1, $2, $3, $4);';
+    console.log(userId,title,entryBody)
+    const queryText = 'INSERT INTO journal_entries (user_id, title, entry_body) VALUES ($1, $2, $3 $4);';
     return db.query(queryText, [userId, title, entryBody, isPrivate]);
   }
 

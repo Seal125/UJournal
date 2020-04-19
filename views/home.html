@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Explore | UJournal</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+          <div class="navbar-start">
+            <a href="/entries" class="navbar-item">
+                Your Entries
+            </a>
+      
+            <a href="/explore/entries" class="navbar-item">
+                Explore
+            </a>
+      
+            <a href="/" class="navbar-item">
+                About
+            </a>
+          </div>
+      
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a href="/logout" class="button is-primary">
+                  <strong>Log Out</strong>
+                </a>
+              </div>
+            </div>
+          </div>
+    </nav>
+<div class="columns">
+      <div class="tile is-vertical is-3"> 
+        <div class="tile">
+          <div class="tile is-parent is-vertical">
+            <article class="tile is-child notification ">
+              <p class="title ">Used Hashtags</p>
+              <div class="tagSection"></div>
+            </article>
+            <article class="tile is-child notification">
+              <p class="title">Liked Entries</p>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="cardSection"></div>
+    </div>
+  <script type="text/javascript" src="../javascripts/home.js"></script>
+</body>
+
+</html>
+
