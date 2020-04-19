@@ -1,5 +1,5 @@
 window.addEventListener('load', async () => {
-  const response = await fetch('/explore/entries');
+  const response = await fetch('/api/explore/entries');
   const entries = await response.json();
 
   return entries.forEach((entry) => {
