@@ -4,20 +4,15 @@ window.addEventListener('load', async () => {
 
   return entries.forEach((entry) => {
     document.getElementById('explore-entries').innerHTML += `
-      <a href="/entries/${entry.entry_id}">
-        <div class="entry">
-          <h1 class="title">${entry.title}</h1>
-          <p>By ${entry.username}</p>
-
-          <button onclick="editEntry(${entry.entry_id})">Edit</button>
-          <button onclick="deleteEntry(${entry.entry_id})">Delete</button>
+    <a href="/explore/entries/${entry.entry_id}">
+      <div class="card">
+        <div class="card-content">
+          <p class="title">${entry.title}</p>
+          <p class="subtitle">By ${entry.username}</p>
+          <p>${entry.date_created}</p>
         </div>
-      </a>
+      </div>
+    </a>
     `;
   });
 });
-
-const deleteEntry = async (entryId) => {
-  await fetch(`/entries/${entryId}`, { method: 'DELETE' });
-  return window.location.reload();
-};
