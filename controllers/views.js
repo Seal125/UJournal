@@ -1,11 +1,3 @@
-const getSignupForm = (req, res) => {
-  res.render('signup');
-};
-
-const getLoginForm = (req, res) => {
-  res.render('login');
-};
-
 const getEntryForm = (req, res) => {
   res.render('entryForm');
 };
@@ -31,8 +23,6 @@ const getAddPage = (req, res) => {
 };
 
 module.exports = {
-  getSignupForm,
-  getLoginForm,
   getEntryForm,
   getExplorePage,
   getExploreEntry,

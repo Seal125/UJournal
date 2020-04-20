@@ -10,7 +10,30 @@
 </head>
 
 <body>
-  <%- include('partials/header'); %>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a href="/" class="navbar-item">
+        <img src="/img/ujournal.png" alt="UJournal logo">
+      </a>
+    </div>
+
+    <div id="navbar" class="navbar-menu">
+      <div class="navbar-start">
+        <a href="/entries" class="navbar-item">Your Entries</a>
+        <a href="/explore/entries" class="navbar-item">Explore</a>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a href="/signup" class="button is-primary">Register</a>
+            <a href="/login" class="button is-primary">Log In</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
   <main>
     <p id="warning"></p>
     <form id="signup">
