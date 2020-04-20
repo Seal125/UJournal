@@ -9,30 +9,31 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   </head>
   <body>
-    <form action="/edit" method="POST">
-      
+    <%- include('partials/header'); %>
+    <form action="/add" method="POST">
+
       <div class="field ">
           <label class="label">Title</label>
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="input" type="text" name="title" id="title" placeholder="I'm Feeling Good Today!">
+              <input class="input" type="text" name="title" placeholder="e.g. Partnership opportunity">
             </div>
           </div>
         </div>
       </div>
 
       <div class="field ">
-          <label for="entryBody" class="label">Journal</label>
+          <label class="label">Journal</label>
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <textarea class="textarea" name="entryBody" id="entryBody" placeholder="So many wonderful things happened!"></textarea>
+              <textarea class="textarea" name="entryBody" placeholder="Explain how we can help you"></textarea>
             </div>
           </div>
         </div>
       </div>
-      
+
       <div class="field ">
         <div class="field-label">
           <!-- Left empty for spacing -->
@@ -40,7 +41,7 @@
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <button value = "submit" class="button is-primary" id="myBtn">
+              <button value = "submit" class="button is-primary">
                 Submit
               </button>
             </div>
@@ -50,6 +51,5 @@
 
   </form>
 
-  <script type="text/javascript" src="../javascripts/edit.js"></script>
   </body>
 </html>
