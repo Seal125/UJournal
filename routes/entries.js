@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/api/entries', entryController.getAll);
 
-router.get('/entries/:id', entryController.show);
+router.get('/entries', entryController.show);
 
 router.get('/api/explore/entries/:id', entryController.show);
 

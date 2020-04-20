@@ -1,9 +1,11 @@
 const JournalEntry = require('../models/JournalEntry');
-
+const tagsEntry = require('../models/Tags');
 const add = (req, res) => {
   const {
     userId, title, entryBody, isPrivate,
   } = req.body;
+  const { tags } = req.body
+  console.log(tags)
   JournalEntry.add(userId, title, entryBody, isPrivate)
     .then(() => res.status(200).json({ message: 'Journal entry added.' }))
     .catch(() => res.status(500).json({ message: 'Journal entry could not be added.' }));
