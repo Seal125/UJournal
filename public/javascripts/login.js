@@ -4,9 +4,9 @@ const validateUsername = (username) => {
   const maxLength = 32;
   const minLength = 4;
   return (
-    regex.test(username) &&
-    username.length <= maxLength &&
-    username.length >= minLength
+    regex.test(username)
+    && username.length <= maxLength
+    && username.length >= minLength
   );
 };
 
@@ -17,7 +17,7 @@ const warnInvalidUsername = () => {
   if (!warning) {
     input.insertAdjacentHTML(
       'afterend',
-      `<p id="username-warning">${warningText}</p>`
+      `<p id="username-warning">${warningText}</p>`,
     );
     warning = document.getElementById('username-warning');
     warning.style.color = 'red';

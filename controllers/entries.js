@@ -4,10 +4,8 @@ const add = (req, res) => {
   const {
     userId, title, entryBody, isPrivate,
   } = req.body;
-
-  JournalEntry.addJournalEntry(title, entryBody, isPrivate)
-    .then(() => JournalEntry.getLastCreated(userId))
-    .then(() => res.status(201).json({ message: 'Journal entry added.' }))
+  JournalEntry.add(userId, title, entryBody, isPrivate)
+    .then(() => res.redirect('/'))
     .catch(() => res.status(500).json({ message: 'Journal entry could not be added.' }));
 };
 
@@ -29,9 +27,9 @@ const update = (req, res) => {
 };
 
 const remove = (req, res) => {
-  const { entryId } = req.params;
+  const { id } = req.params;
 
-  JournalEntry.remove(entryId)
+  JournalEntry.remove(id)
     .then(() => res.status(204).json({ message: 'Deleted successfully.' }))
     .catch(() => res.status(500).json({ message: 'Journal entry could not be deleted.' }));
 };
@@ -49,6 +47,7 @@ const getAllPublic = (req, res) => {
     .then((response) => res.status(200).json(response))
     .catch(() => res.status(500).json({ message: 'Could not get all public entries.' }));
 };
+
 
 module.exports = {
   add,
