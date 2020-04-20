@@ -30,10 +30,6 @@ const getAddPage = (req, res) => {
   res.render('entryForm');
 };
 
-const getHomePage = (req, res) => {
-  res.render('home');
-};
-
 module.exports = {
   getSignupForm,
   getLoginForm,
@@ -43,5 +39,4 @@ module.exports = {
   getEntriesPage,
   getEditPage,
   getAddPage,
-  getHomePage,
 };
