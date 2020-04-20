@@ -28,4 +28,9 @@ const login = async (req, res) => {
   return res.cookie('ujournal_remembers', token).sendStatus(200);
 };
 
-module.exports = { register, login };
+const logout = async (req, res) => {
+  res.clearCookie('ujournal_remembers');
+  res.redirect('/login');
+};
+
+module.exports = { register, login, logout };
