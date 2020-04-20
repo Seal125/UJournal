@@ -4,7 +4,6 @@ class Tags {
   static async create(entryId, tag) {
     // First have to find out if the tag already exist and if it does grab the tag id and make an insertion into journal_entries_tag table (the table takes an entry_id and a tag_id). If the tag doesn't exist it will first creat the tag and then do the function mentioned previously.
     const id = await db.query('SELECT tags.name,tags.id FROM tags WHERE (tags.name = $1);', [tag]);
-    console.log(id);
     if (id.rows.length = 0) {
       await db.query('INSERT INTO tags(name) VALUES($1);', [tag]);
       const tagId = await db.query('SELECT tags.id FROM tags WHERE (tags.name = $1);', [tag]);
@@ -29,7 +28,7 @@ class Tags {
 
 
   static async getAllOfAUsersEntriesWithTag(userId, tag) {
-    const res = await db.query(`SELECT journal_entries.title FROM journal_entries 
+    const res = await db.query(`SELECT journal_entries.title FROM journal_entries
     JOIN journal_entries_tag ON (journal_entries_tag.entry_id = journal_entries.entry_id)
     JOIN tags ON (journal_entries_tag.tag_id = tags.id)
     JOIN users ON (journal_entries_tag.user_id = users.user_id)

@@ -18,11 +18,11 @@ const getAllForSearch = (req, res) => {
   Tags.getAllOfATagInSearch(tag);
 };
 
-const getTagsThatUserUses = async(req, res) => {
+const getTagsThatUserUses = async (req, res) => {
   // const { userId } = req.body;
-  const list = await Tags.getAllUsedByUser(2)
+  const list = await Tags.getAllUsedByUser(2);
   // console.log(list);
-  res.status(200).json(list)
+  res.status(200).json(list);
 };
 
 // this function will get all of the entries that include the tag
