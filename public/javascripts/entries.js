@@ -13,7 +13,7 @@ const renderTags = (tags) => {
   tagSection.innerHTML = completeHtml;
 };
 
-const entry = fetch('/getEntries')
+const entry = fetch('/api/entries')
   .then((res) => res.json())
   .then((res) => renderEntries(res));
 

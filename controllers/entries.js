@@ -28,7 +28,7 @@ const update = (req, res) => {
 
 const remove = (req, res) => {
   const { id } = req.params;
-  
+
   JournalEntry.remove(id)
     .then((response) => console.log(response))
     .then(() => res.status(204).json({ message: 'Deleted successfully.' }))
@@ -39,8 +39,8 @@ const getAll = (req, res) => {
   const { userId } = req.body;
 
   JournalEntry.getAll(userId)
-  .then((response) => res.status(200).json(response))
-  .catch(() => res.status(500).json({ message: 'Could not get all journal entries.' }));
+    .then((response) => res.status(200).json(response))
+    .catch(() => res.status(500).json({ message: 'Could not get all journal entries.' }));
 };
 
 const getAllPublic = (req, res) => {

@@ -20,10 +20,25 @@ const getExploreEntry = (req, res) => {
   res.sendFile(path.join(__dirname, '../views/viewExploreEntry.html'));
 };
 
+const getEntriesPage = (req, res) => {
+  res.sendFile(path.join(__dirname, '../views/entries.html'));
+};
+
+const getEditPage = (req, res) => {
+  res.sendFile(path.join(__dirname, '../views/edit.html'));
+};
+
+const getAddPage = (req, res) => {
+  res.sendFile(path.join(__dirname, '../views/entryForm.html'));
+};
+
 module.exports = {
   getSignupForm,
   getLoginForm,
   getEntryForm,
   getExplorePage,
   getExploreEntry,
+  getEntriesPage,
+  getEditPage,
+  getAddPage,
 };
