@@ -1,4 +1,4 @@
-const Tags = require('../models/tags');
+const Tags = require('../models/Tags');
 
 // an onclick function will place the entry_id and the specific tag that was clicked on in the req body
 const add = (req, res) => {
