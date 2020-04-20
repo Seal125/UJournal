@@ -15,9 +15,21 @@ app.use(express.static('public'));
 app.use(cookieParser());
 app.set('view engine', 'ejs');
 
-app.use(viewsRoute);
+app.get('/', (req, res) => {
+  res.render('home');
+});
+
+app.get('/signup', (req, res) => {
+  res.render('signup');
+});
+
+app.get('/login', (req, res) => {
+  res.render('login');
+});
+
 app.use(usersRoute);
 app.use(authenticate);
+app.use(viewsRoute);
 app.use(entriesRoute);
 
 app.get('/getTags', tagController.getTagsThatUserUses);
