@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+  <title>Sign Up | UJournal</title>
+</head>
+
+<body>
+  <%- include('partials/header'); %>
+  <main>
+    <p id="warning"></p>
+    <form id="signup">
+      <fieldset>
+        <legend>Create a new account</legend>
+
+        <label for="username">Enter a username</label>
+        <input type="text" id="username" name="username" placeholder="Username" required />
+
+        <label for="password">Enter a password</label>
+        <input type="password" id="password" name="password" required />
+
+        <label for="verifyPassword">Confirm your password</label>
+        <input type="password" id="verifyPassword" required />
+
+        <input type="submit" value="Sign Up" />
+      </fieldset>
+    </form>
+    <script type="text/javascript" src="javascripts/signup.js"></script>
+  </main>
+</body>
+
+</html>

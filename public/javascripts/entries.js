@@ -24,7 +24,7 @@ const renderEntries = (entry) => {
 
     const date = entry[i].date_created.slice(0, 10);
     const x = `
-    <div class="column is-one-quarter">
+    <div class="column is-one-fourth">
     <div class="card">
   <div class="card-content">
     <p>

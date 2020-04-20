@@ -7,7 +7,7 @@ const add = (req, res) => {
   const { tags } = req.body
   console.log(tags)
   JournalEntry.add(userId, title, entryBody, isPrivate)
-    .then(() => res.redirect('/'))
+    .then(() => res.redirect('/entries'))
     .catch(() => res.status(500).json({ message: 'Journal entry could not be added.' }));
   
 };
