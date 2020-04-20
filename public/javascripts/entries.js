@@ -1,11 +1,7 @@
-const tag = fetch('/getTags')
-  .then((res) => res.json())
-  .then((res) => renderTags(res));
-
 const renderTags = (tags) => {
   const tagSection = document.getElementsByClassName('tagSection')[0];
   let completeHtml = '<div class="tags">';
-  for (let i = 0; i < tags.length; i++) {
+  for (let i = 0; i < tags.length; i += 1) {
     const x = `<span class="tag is-medium">${tags[i].name}</span>`;
     completeHtml += ` ${x}`;
   }
@@ -13,14 +9,10 @@ const renderTags = (tags) => {
   tagSection.innerHTML = completeHtml;
 };
 
-const entry = fetch('/api/entries')
-  .then((res) => res.json())
-  .then((res) => renderEntries(res));
-
 const renderEntries = (entry) => {
   const cardSection = document.getElementsByClassName('cardSection')[0];
   let cardsHtml = '<div class="columns is-multiline">';
-  for (let i = 0; i < entry.length; i++) {
+  for (let i = 0; i < entry.length; i += 1) {
     let preview = entry[i].entry_body.slice(0, 47);
     if (preview.length < 20) {
       preview += '<br> <br>';
@@ -31,7 +23,6 @@ const renderEntries = (entry) => {
     }
 
     const date = entry[i].date_created.slice(0, 10);
-    console.log(entry[i].entry_id);
     const x = `
     <div class="column is-one-third">
     <div class="card">
@@ -54,9 +45,9 @@ const renderEntries = (entry) => {
     </p>
     <p class="card-footer-item">
       <span>
-      <a class="button" href= '/remove/${entry[i].entry_id}' >
+      <button class="button" onclick="removeEntry(${entry[i].entry_id})">
          Delete
-       </a>
+       </button>
       </span>
     </p>
   </footer>
@@ -67,4 +58,17 @@ const renderEntries = (entry) => {
   }
   cardsHtml += '</div>';
   cardSection.innerHTML = cardsHtml;
+};
+
+fetch('/getTags')
+  .then((res) => res.json())
+  .then((res) => renderTags(res));
+
+fetch('/api/entries')
+  .then((res) => res.json())
+  .then((res) => renderEntries(res));
+
+const removeEntry = async (entryId) => {
+  await fetch(`/remove/${entryId}`);
+  window.location.reload();
 };

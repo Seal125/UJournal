@@ -32,6 +32,10 @@ const getAddPage = (req, res) => {
   res.sendFile(path.join(__dirname, '../views/entryForm.html'));
 };
 
+const getHomePage = (req, res) => {
+  res.sendFile(path.join(__dirname, '../views/home.html'));
+};
+
 module.exports = {
   getSignupForm,
   getLoginForm,
@@ -41,4 +45,5 @@ module.exports = {
   getEntriesPage,
   getEditPage,
   getAddPage,
+  getHomePage,
 };

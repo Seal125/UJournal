@@ -30,7 +30,6 @@ const remove = (req, res) => {
   const { id } = req.params;
 
   JournalEntry.remove(id)
-    .then((response) => console.log(response))
     .then(() => res.status(204).json({ message: 'Deleted successfully.' }))
     .catch(() => res.status(500).json({ message: 'Journal entry could not be deleted.' }));
 };

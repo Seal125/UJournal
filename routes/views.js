@@ -3,6 +3,7 @@ const viewsController = require('../controllers/views');
 
 const router = express.Router();
 
+router.get('/', viewsController.getHomePage);
 router.get('/entries', viewsController.getEntriesPage);
 router.get('/signup', viewsController.getSignupForm);
 router.get('/login', viewsController.getLoginForm);
