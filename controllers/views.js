@@ -1,39 +1,37 @@
-const path = require('path');
-
 const getSignupForm = (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, '../views/signup.html'));
+  res.render('signup');
 };
 
 const getLoginForm = (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, '../views/login.html'));
+  res.render('login');
 };
 
 const getEntryForm = (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, '../views/entryForm.html'));
+  res.render('entryForm');
 };
 
 const getExplorePage = (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, '../views/explore.html'));
+  res.render('explore');
 };
 
 const getExploreEntry = (req, res) => {
-  res.sendFile(path.join(__dirname, '../views/viewExploreEntry.html'));
+  res.render('viewExploreEntry');
 };
 
 const getEntriesPage = (req, res) => {
-  res.sendFile(path.join(__dirname, '../views/entries.html'));
+  res.render('entries');
 };
 
 const getEditPage = (req, res) => {
-  res.sendFile(path.join(__dirname, '../views/edit.html'));
+  res.render('edit');
 };
 
 const getAddPage = (req, res) => {
-  res.sendFile(path.join(__dirname, '../views/entryForm.html'));
+  res.render('entryForm');
 };
 
 const getHomePage = (req, res) => {
-  res.sendFile(path.join(__dirname, '../views/home.html'));
+  res.render('home');
 };
 
 module.exports = {
