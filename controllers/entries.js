@@ -5,7 +5,7 @@ const add = (req, res) => {
     userId, title, entryBody, isPrivate,
   } = req.body;
   JournalEntry.add(userId, title, entryBody, isPrivate)
-    .then(() => res.redirect('/'))
+    .then(() => res.status(200).json({ message: 'Journal entry added.' }))
     .catch(() => res.status(500).json({ message: 'Journal entry could not be added.' }));
 };
 
